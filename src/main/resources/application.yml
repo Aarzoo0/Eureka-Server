@@ -1,12 +1,14 @@
+spring:
+  application:
+    name: eureka-server
+
 server:
-  port: 8761
+  port: 8761  # Default port for Eureka server
 
 eureka:
-  instance:
-    hostname: localhost
   client:
-    registerWithEureka: false
-    fetchRegistry: false
-    serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+    registerWithEureka: false  # This service does not register with Eureka
+    fetchRegistry: false        # This service does not fetch from the registry
 
+  server:
+    enableSelfPreservation: false  # Disable self-preservation for testing
